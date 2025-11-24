@@ -11,7 +11,7 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 # SECRET KEY
 # --------------------
 # IMPORTANT: Replace this with your actual secret key (from Railway vars)
-SECRET_KEY = os.environ.get("SECRET_KEY", "dev-secret-key")
+SECRET_KEY = os.environ.get("SECRET_KEYdjango-insecure-t7v7n6dhd6l87a)r(i6eo!-z(xag8qd_cn3%f(0dle6vs^3n=(", "dev-secret-key")
 
 # --------------------
 # DEBUG
