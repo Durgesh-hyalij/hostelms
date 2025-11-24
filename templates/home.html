@@ -1,0 +1,28 @@
+{% extends "base.html" %}
+
+{% block content %}
+
+<h1>🏫 Hostel Management System</h1>
+
+<p>Welcome to the Official Hostel Management System.</p>
+
+<hr>
+
+<h2>Features</h2>
+<ul>
+    <li>✔ Student Login</li>
+    <li>✔ Attendance Details</li>
+    <li>✔ Fee Records</li>
+    <li>✔ Hostel Room Information</li>
+    <li>✔ Punishments & Activities</li>
+    <li>✔ Notices & Announcements</li>
+</ul>
+
+<hr>
+
+<h2>Login</h2>
+<p>
+    <a href="{% url 'accounts:login' %}">Click here to Login</a>
+</p>
+
+{% endblock %}

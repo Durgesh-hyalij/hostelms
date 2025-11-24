@@ -1,0 +1,77 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<h2>Welcome, {{ student.user.get_full_name }} ({{ student.roll_no }})</h2>
+
+<h3>Room Details</h3>
+{% if allocation %}
+    <p>Room: {{ allocation.room.number }} | Floor: {{ allocation.room.floor }}</p>
+    <p>Joined: {{ allocation.join_date }}</p>
+{% else %}
+    <p>No room allocated.</p>
+{% endif %}
+
+<h3>Attendance Summary</h3>
+<p>Present: {{ total_present }} | Absent: {{ total_absent }}</p>
+
+<h4>Recent Attendance</h4>
+<table border="1">
+    <tr>
+        <th>Date</th><th>Status</th><th>Remarks</th>
+    </tr>
+    {% for rec in attendance %}
+    <tr>
+        <td>{{ rec.date }}</td>
+        <td>{{ rec.get_status_display }}</td>
+        <td>{{ rec.remarks }}</td>
+    </tr>
+    {% empty %}
+    <tr><td colspan="3">No records.</td></tr>
+    {% endfor %}
+</table>
+
+<h3>Fee Details</h3>
+<table border="1">
+    <tr>
+        <th>Description</th><th>Amount</th><th>Due Date</th><th>Status</th><th>Paid Date</th>
+    </tr>
+    {% for fee in fees %}
+    <tr>
+        <td>{{ fee.description }}</td>
+        <td>{{ fee.amount }}</td>
+        <td>{{ fee.due_date }}</td>
+        <td>{{ fee.get_status_display }}</td>
+        <td>{{ fee.paid_date }}</td>
+    </tr>
+    {% empty %}
+    <tr><td colspan="5">No fee records.</td></tr>
+    {% endfor %}
+</table>
+
+<h3>Activities</h3>
+<ul>
+    {% for a in activities %}
+        <li>{{ a.date }} - {{ a.title }}: {{ a.description }}</li>
+    {% empty %}
+        <li>No activities.</li>
+    {% endfor %}
+</ul>
+
+<h3>Punishments</h3>
+<ul>
+    {% for p in punishments %}
+        <li>{{ p.date_given }} - {{ p.reason }} (Resolved: {{ p.resolved }})</li>
+    {% empty %}
+        <li>No punishments. 😊</li>
+    {% endfor %}
+</ul>
+
+<h3>Notices</h3>
+<ul>
+    {% for n in notices %}
+        <li><strong>{{ n.title }}</strong> - {{ n.content|truncatechars:100 }}</li>
+    {% empty %}
+        <li>No active notices.</li>
+    {% endfor %}
+</ul>
+{% endblock %}
