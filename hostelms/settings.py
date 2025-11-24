@@ -29,8 +29,10 @@ SECRET_KEY = 'django-insecure-t7v7n6dhd6l87a)r(i6eo!-z(xag8qd_cn3%f(0dle6vs^3n=(
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-# ALLOWED_HOSTS = []
-ALLOWED_HOSTS = ['*']
+# # ALLOWED_HOSTS = []
+# ALLOWED_HOSTS = ['*']
+ALLOWED_HOSTS = ['durgeshhostel.up.railway.app', '127.0.0.1', 'localhost']
+
 
 
 
@@ -160,3 +162,9 @@ STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
 STATIC_URL = '/static/'
 
 STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'
+
+
+CSRF_TRUSTED_ORIGINS = [
+    'https://durgeshhostel.up.railway.app',
+    'https://*.up.railway.app',
+]
